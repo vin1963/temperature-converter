@@ -5,8 +5,12 @@ public class Temperature {
      * @return 華氏溫度
      */
     public static double celsiusToFahrenheit(double celsius) {
-        return celsius * 9.0 / 5.0 + 32.0;
+       if (celsius < -273.15) {
+           throw new IllegalArgumentException("溫度不可低於絕對零度 (-273.15°C)");
+       }
+      return celsius * 9.0 / 5.0 + 32.0;
     }
+    
     
     /**
      * 華氏轉攝氏
